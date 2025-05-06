@@ -19,9 +19,9 @@ public:
 private:
 	void timer_callback() {
 		auto msg = tutorial_interfaces::msg::Num();
-		message.num = count_++; 
-		RCLCPP_INFO_STREAM(get_logger(), "Publishing: '" << message.num << "'");
-		publisher_->publish(message);
+		msg.num = count_++; 
+		RCLCPP_INFO_STREAM(get_logger(), "Publishing: '" << msg.num << "'");
+		publisher_->publish(msg);
 	}
 	size_t count_;
 	rclcpp::TimerBase::SharedPtr timer_;
